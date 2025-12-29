@@ -62,11 +62,11 @@ const Celebration: React.FC = () => {
         ctx.fillStyle = this.color;
         // Add a "sparkle" effect to some particles
         if (Math.random() > 0.9) {
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = '#fff';
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = '#fff';
         } else {
-            ctx.shadowBlur = 5;
-            ctx.shadowColor = this.color;
+          ctx.shadowBlur = 5;
+          ctx.shadowColor = this.color;
         }
         ctx.fill();
         ctx.restore();
@@ -83,56 +83,55 @@ const Celebration: React.FC = () => {
     }
 
     class Firework {
-        x: number;
-        y: number;
-        vy: number;
-        vx: number;
-        color: string;
-        exploded: boolean;
+      x: number;
+      y: number;
+      vy: number;
+      vx: number;
+      color: string;
+      exploded: boolean;
 
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = canvas.height;
-            this.vy = -(Math.random() * 12 + 12);
-            this.vx = (Math.random() - 0.5) * 4;
-            this.color = colors[Math.floor(Math.random() * colors.length)];
-            this.exploded = false;
-        }
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height;
+        this.vy = -(Math.random() * 12 + 12);
+        this.vx = (Math.random() - 0.5) * 4;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.exploded = false;
+      }
 
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            this.vy += 0.15; // Gravity on the shell
-            if (this.vy >= -0.5) {
-                this.explode();
-                this.exploded = true;
-            }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.15; // Gravity on the shell
+        if (this.vy >= -0.5) {
+          this.explode();
+          this.exploded = true;
         }
+      }
 
-        draw(ctx: CanvasRenderingContext2D) {
-            if (this.exploded) return;
-            ctx.save();
-            ctx.fillStyle = this.color;
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = this.color;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-        }
+      draw(ctx: CanvasRenderingContext2D) {
+        if (this.exploded) return;
+        ctx.save();
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
 
-        explode() {
-            const particleCount = 100 + Math.floor(Math.random() * 50);
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle(this.x, this.y, this.color));
-            }
+      explode() {
+        const particleCount = 100 + Math.floor(Math.random() * 50);
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle(this.x, this.y, this.color));
         }
+      }
     }
 
     const loop = () => {
-      // Trail effect: don't clear fully
-      ctx.fillStyle = 'rgba(2, 6, 23, 0.15)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Fully clear the canvas so text behind it is visible
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       if (Math.random() < 0.05) {
         fireworks.push(new Firework());
@@ -140,8 +139,8 @@ const Celebration: React.FC = () => {
 
       fireworks = fireworks.filter(f => !f.exploded);
       fireworks.forEach(f => {
-          f.update();
-          f.draw(ctx);
+        f.update();
+        f.draw(ctx);
       });
 
       particles = particles.filter(p => p.alpha > 0);
@@ -167,7 +166,7 @@ const Celebration: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 z-50 pointer-events-none" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 z-20 pointer-events-none" />;
 };
 
 export default Celebration;
