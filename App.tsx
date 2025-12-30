@@ -5,8 +5,9 @@ import { getFuturisticInspiration } from './services/geminiService';
 import Celebration from './components/Celebration';
 import BackgroundGraphics from './components/BackgroundGraphics';
 
-// January 1, 2026 at 00:00:00 PST (UTC-8)
-const TARGET_DATE = new Date('2026-01-01T00:00:00-08:00').getTime();
+// January 1, 2026 at 00:00:00 in the user's local timezone
+// This creates a Date object for midnight on Jan 1, 2026 in whatever timezone the user is in
+const TARGET_DATE = new Date(2026, 0, 1, 0, 0, 0, 0).getTime();
 
 
 
