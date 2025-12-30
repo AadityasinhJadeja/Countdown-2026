@@ -5,7 +5,9 @@ import { getFuturisticInspiration } from './services/geminiService';
 import Celebration from './components/Celebration';
 import BackgroundGraphics from './components/BackgroundGraphics';
 
-const TARGET_DATE = new Date('2026-01-01T00:00:00').getTime();
+// January 1, 2026 at 00:00:00 PST (UTC-8)
+const TARGET_DATE = new Date('2026-01-01T00:00:00-08:00').getTime();
+
 
 
 const App: React.FC = () => {
