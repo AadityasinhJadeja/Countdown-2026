@@ -113,37 +113,41 @@ const App: React.FC = () => {
           </div>
         ) : (
           <div className="text-center animate-in zoom-in-75 fade-in duration-[4000ms] w-full px-6 space-y-12 relative z-30">
-            {/* Large 2026 */}
-            <h1 className="text-[clamp(8rem,35vw,24rem)] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_150px_rgba(59,130,246,0.8)] relative z-10">
-              2026
-            </h1>
+            {/* Massive Year Display */}
+            <div className="relative inline-block">
+              <h1 className="text-[clamp(8rem,35vw,24rem)] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_150px_rgba(59,130,246,0.8)] relative z-10 transition-transform hover:scale-105 duration-1000 cursor-default select-none">
+                2026
+              </h1>
+              <div className="absolute -inset-10 bg-blue-500/20 blur-[120px] rounded-full animate-pulse pointer-events-none"></div>
+            </div>
 
-            {/* Happy New Year Message */}
-            <div className="space-y-6 max-w-3xl mx-auto">
-              <p className="text-4xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 tracking-tight animate-in slide-in-from-bottom-4 duration-[2000ms]">
-                Happy New Year!
-              </p>
-
-              <div className="h-px w-96 max-w-full mx-auto bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
-
-              {/* Warm Wishes */}
-              <div className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-[3000ms] delay-500">
-                <p className="text-xl sm:text-2xl lg:text-3xl font-light text-slate-200 leading-relaxed">
-                  May this year bring you endless opportunities,
-                </p>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-light text-slate-200 leading-relaxed">
-                  boundless joy, and extraordinary success.
-                </p>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-light text-emerald-400 leading-relaxed mt-6">
-                  Here's to new beginnings! 🎉
+            <div className="space-y-8 max-w-4xl mx-auto">
+              <div className="overflow-hidden">
+                <p className="text-4xl sm:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-amber-400 tracking-tighter animate-in slide-in-from-bottom-full duration-[2500ms] ease-out">
+                  LIMITLESS HORIZONS
                 </p>
               </div>
 
-              <div className="h-px w-64 mx-auto bg-white/5 mt-8"></div>
+              <div className="h-px w-full max-w-2xl mx-auto bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
 
-              <p className="mono text-[11px] text-slate-500 tracking-[1.2em] uppercase animate-pulse">
-                Welcome to the Future
-              </p>
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-12 duration-[3000ms] delay-700">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-light text-slate-300 tracking-tight leading-relaxed">
+                  The countdown ends, but the <span className="text-white font-bold italic">evolution</span> begins.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm mono tracking-[0.4em] text-blue-400/60 uppercase">
+                  <span>UNLOCKED</span>
+                  <span className="text-slate-700">•</span>
+                  <span>INITIALIZED</span>
+                  <span className="text-slate-700">•</span>
+                  <span>SYNCED</span>
+                </div>
+              </div>
+
+              <div className="pt-12">
+                <p className="mono text-[10px] sm:text-[12px] text-slate-500 tracking-[1.5em] uppercase animate-pulse font-bold">
+                  SIMULATION_COMPLETE // WELCOME_TO_THE_NEXT_LEVEL
+                </p>
+              </div>
             </div>
           </div>
         )}
